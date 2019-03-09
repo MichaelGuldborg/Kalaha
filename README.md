@@ -1,22 +1,29 @@
-# Kalaha
-Alpha-Beta Pruning and Minimax (Python) <br>
+## Kalaha
+<i>Alpha-Beta Pruning and Minimax (Python)</i>
 
-Python files:
-<p> 1. MancalaGame.py = creates Mancala board, defines game moves, defines game rules </p>
-<p> 2. MancalaGUI.py = creates visual of game board </p>
-<p> 3. Player.py = creates different player options </p>
+# Files
+1) Kalaha.py: Initialise environment, agents and gamestyle
+2) KalahaEnv.py: Defines the Kalaha environment/game/board
+3) KalahaAgent.py: Defines a Kalaha agent/player with a given strategy
 
-Player options: 
-<p> HUMAN = human as the player </p>
-<p> RANDOM = random legal moves </p>
-<p> MINIMAX = uses minimax algorithm to choose next move</p>
-<p> ABPRUNE = uses alpha-beta pruning algorithm to choose next move</p>
-<p> NYG316 = most optimal player using ab-pruning </p>
+# Gamestyles
+1) Human vs Human
+2) Human vs Agent
+3) Agent vs Agent (not rendered)
 
-To play:
-<p>#define players (can choose any above player options)</p>
-<p>>>>player1=Player(1, Player.HUMAN)</p>
-<p>>>>player2=Player(2, Player.HUMAN)</p>
-<p>>>>startGame(player1, player2)</p>
-<p>#if you do not have another human to play against, choose one of the computer player options</p>
+# Agent strategies
+1) random: moves randomly within legal options
+2) front: picks non-empty pit closest to target
+3) back: picks non-empty pit furthest from target
+4) back: picks non-empty pit furthest from target
+5) max_balls: picks pit with most balls cloest to target
 
+//TODO
+MINIMAX: uses minimax algorithm to choose next move
+ABPRUNE: uses alpha-beta pruning algorithm to choose next move
+NYG316: most optimal player using ab-pruning
+
+# To play
+1) Define gamestyle
+2) Define agent strategies
+>> python kalaha.py
