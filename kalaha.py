@@ -2,8 +2,8 @@ import sys
 
 import pygame
 
-from kalaha.kalaha_agent import KalahaAgent
-from kalaha.kalaha_env import KalahaEnv
+from kalaha_agent import KalahaAgent
+from kalaha_env import KalahaEnv
 
 
 def play_game(env):

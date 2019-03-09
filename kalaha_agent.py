@@ -1,6 +1,6 @@
 import random
 
-from kalaha.kalaha_env import KalahaEnv
+from kalaha_env import KalahaEnv
 
 INFINITY = 1.0e400  # constant
 
