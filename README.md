@@ -2,12 +2,9 @@
 <i>Alpha-Beta Pruning and Minimax (Python)</i>
 
 ## Files
-<b>Kalaha.py</b></br>
-Initialise environment, agents and gamestyle</br>
-<b>KalahaEnv.py</b></br>
-Defines the Kalaha environment/game/board</br>
-<b>KalahaAgent.py</b></br>
-Defines a Kalaha agent/player with a given strategy</br>
+<b>Kalaha.py:</b> Initialise environment, agents and gamestyle</br>
+<b>KalahaEnv.py:</b> Defines the Kalaha environment/game/board</br>
+<b>KalahaAgent.py:</b> Defines a Kalaha agent/player with a given strategy</br>
 
 ## Gamestyles
 1) Human vs Human
