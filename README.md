@@ -7,9 +7,9 @@
 <b>KalahaAgent.py:</b> Defines a Kalaha agent/player with a given strategy</br>
 
 ## Gamestyles
-1) Human vs Human
-2) Human vs Agent
-3) Agent vs Agent (not rendered)
+0) Human vs Human
+1) Human vs Agent
+2) Agent vs Agent (not rendered)
 
 ## Agent strategies
 1) random: moves randomly within legal options

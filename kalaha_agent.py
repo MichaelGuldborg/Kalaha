@@ -19,7 +19,7 @@ class KalahaAgent(object):
         return "{}) {} with strategy: {}".format(self.index, self.name, self.strategy)
 
     def act(self, state, strategy=None):
-        strategy = self.strategy if strategy is None else "random"
+        strategy = self.strategy if strategy is None else strategy
 
         if strategy == "playbook":
             action = self.act_with_playbook(state)
@@ -70,8 +70,8 @@ class KalahaAgent(object):
     def act_with_simple_strategy(self, state, strategy="random"):
         if strategy == "random":
             return random.randint(1, 6)
-        if strategy == "human":
-            return int(input("It's your turn {}\nPlease enter a number from 1 to 6\n".format(self.name)))
+        # if strategy == "human":
+        #     return int(input("It's your turn {}\nPlease enter a number from 1 to 6\n".format(self.name)))
 
         index_start, index_end = self.index_range()
         if strategy == "max_balls":

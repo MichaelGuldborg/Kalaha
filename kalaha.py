@@ -6,7 +6,7 @@ from kalaha_agent import KalahaAgent
 from kalaha_env import KalahaEnv
 
 
-def play_game(env):
+def play_game_with_render(env, agent=None):
     """
     while True:
         action = int(input("action: "))
@@ -16,6 +16,11 @@ def play_game(env):
 
     env.render()
     while True:
+        if agent and env.current_player == agent_a.index:
+            action = agent_a.act(env.current_state)
+            env.step(action)
+            env.render()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -40,7 +45,7 @@ def play_game(env):
 
                 if action != -1:
                     next_state, reward, done = env.step(action)
-                    print(next_state)
+                    # print(next_state)
                     env.render()
 
                     if done:
@@ -51,7 +56,7 @@ def play_game(env):
                 pass
 
 
-def test_agent(env, agent_a, agent_b):
+def play_game(env, agent_a, agent_b):
     env.reset()
     print("\nNow playing Kalaha!!")
     print(agent_a)
@@ -59,10 +64,6 @@ def test_agent(env, agent_a, agent_b):
 
     while True:
         print(env)  # print environment
-        # env.render()  # render game states as window
-
-        # time.sleep(.800)  # slow down
-
         action = agent_a.act(env.current_state) if env.current_player == agent_a.index \
             else agent_b.act(env.current_state)
 
@@ -80,15 +81,13 @@ def test_agent(env, agent_a, agent_b):
 
 
 if __name__ == '__main__':
-    """
-    is_player_1_bot = input("is player 1 a bot? (y/n)").lower() == 'y'
-    is_player_2_bot = input("is player 2 a bot? (y/n)").lower() == 'y'
-    player_1_name = input("player 1 name: ")
-    player_2_name = input("player 2 name: ")
-    """
+    n_pits = 6  # pits per player
+    n_balls = 4  # balls per pit
 
-    env = KalahaEnv(n_pits=6, n_balls=4)
-    agent_a = KalahaAgent(0, env.n_pits, env.n_balls, strategy="max_score")
-    agent_b = KalahaAgent(1, env.n_pits, env.n_balls, strategy="playbook")
-    test_agent(env, agent_a, agent_b)
-    # play_game(env)
+    env = KalahaEnv(n_pits, n_balls)
+    agent_a = KalahaAgent(0, n_pits, n_balls, strategy="max_score")
+    agent_b = KalahaAgent(1, n_pits, n_balls, strategy="playbook")
+
+    # play_game_with_render(env, None)  # human vs human
+    # play_game_with_render(env, agent_b)  # human vs agent
+    play_game(env, agent_a, agent_b)  # agent vs agent

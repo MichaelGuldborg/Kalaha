@@ -19,7 +19,6 @@ class KalahaEnv(object):
         self.n_players = n_players
 
         self.total_balls = self.n_pits * n_players * n_balls
-        print("total_balls", self.total_balls)
         self.total_pits = (self.n_pits + 1) * n_players
 
         self.current_step = None
@@ -70,7 +69,6 @@ class KalahaEnv(object):
     def eval_action(state, player_index, action):
         if str(action) not in "123456":
             raise IndexError
-
 
         n_players = 2
         n_pits = (len(state) - n_players) / n_players
